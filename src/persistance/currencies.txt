@@ -1,0 +1,10 @@
+USD, Dólar USA, $
+CAD, Dólar Canadá, $
+EUR, Euro, € 
+JPY, Yen japonés, ¥
+NOK, Corona noruega, Kr
+CHF, Franco suizo, Fr
+KRW, Won surcoreano, ₩
+GBP, Libra esterlina, £
+INR, Rupia india, ₹
+PHP, Peso filipino, ₱
