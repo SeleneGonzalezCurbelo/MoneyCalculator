@@ -2,19 +2,15 @@ package model;
 
 public class Currency {
     
-    public String name;
-    public String symbol;
-    public String code;
+    private final String code;
+    private final String name;
+    private final String symbol;
     
-    private static Currency instance;
-
-    public Currency() {
-    }
     
-    public Currency(String name, String symbol, String code) {
+    public Currency(String code, String name, String symbol) {
+        this.code = code;
         this.name = name;
         this.symbol = symbol;
-        this.code = code;
     }
 
     public String getName() {
@@ -29,10 +25,8 @@ public class Currency {
         return code;
     }
     
-    public static Currency getInstance(){
-        if(instance == null){
-            instance = new Currency();
-        }
-        return instance;
+    @Override
+    public String toString(){
+        return name + " - " + symbol;
     }
 }

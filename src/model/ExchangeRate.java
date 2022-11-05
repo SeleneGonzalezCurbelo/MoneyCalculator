@@ -2,20 +2,14 @@ package model;
 
 public class ExchangeRate {
 
-    private Currency form, to;
-    private float exchangeRate; 
-    
-    public ExchangeRate(float exchangeRate) {
-        this.exchangeRate = exchangeRate;
-    }
+    private final Currency form;
+    private final Currency to;
+    private final double exchangeRate; 
 
-    public ExchangeRate(Currency form, Currency to) {
+    public ExchangeRate(Currency form, Currency to, double exchangeRate) {
         this.form = form;
         this.to = to;
-    }
-    
-    public ExchangeRate(Currency form, Currency to, String read) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.exchangeRate = exchangeRate;
     }
 
     public Currency getForm() {
@@ -26,7 +20,7 @@ public class ExchangeRate {
         return to;
     }
     
-    public float getExchangeRate() {
+    public double getExchangeRate() {
         return exchangeRate;
     }
 }
