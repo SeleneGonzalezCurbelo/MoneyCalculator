@@ -23,4 +23,9 @@ public class ExchangeRate {
     public double getExchangeRate() {
         return exchangeRate;
     }
+    
+    @Override
+    public String toString() {
+        return String.format("%s/%s %.2f", form.getCode(), to.getCode(), exchangeRate);
+    }
 }
