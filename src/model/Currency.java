@@ -1,5 +1,8 @@
 package model;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class Currency {
     
     private final String code;
@@ -28,5 +31,10 @@ public class Currency {
     @Override
     public String toString(){
         return name + " - " + symbol;
+    }
+
+    public String format(double value) {
+        NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale(this.code));
+        return formatter.format(value);
     }
 }

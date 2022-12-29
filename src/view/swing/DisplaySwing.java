@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+
 import model.Money;
 import view.Display;
 

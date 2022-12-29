@@ -2,8 +2,8 @@ package model;
 
 public class Money {
     
-    public final double count;
-    public final Currency currency;
+    private final double count;
+    private final Currency currency;
     
     public Money(double count, Currency currency) {
         this.count = count;

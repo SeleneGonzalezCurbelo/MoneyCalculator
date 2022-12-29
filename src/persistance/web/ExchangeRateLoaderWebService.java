@@ -14,7 +14,7 @@ import persistance.ExchangeRateLoader;
 public class ExchangeRateLoaderWebService implements ExchangeRateLoader{
     
     private URL url;
-    String exchangeRate;
+    private String exchangeRate;
     
     @Override
     public double getRate(Currency currencyFrom, Currency currencyTo) {
@@ -31,7 +31,7 @@ public class ExchangeRateLoaderWebService implements ExchangeRateLoader{
             
             String[] jsonLine = null;
             while ((str = bufr.readLine()) != null) {                
-                System.out.println(bufr.read());
+                bufr.read();
                 jsonLine = str.split(":");
             }
             for(String jsonObject : jsonLine){
@@ -41,6 +41,5 @@ public class ExchangeRateLoaderWebService implements ExchangeRateLoader{
             System.out.println("ERROR: WebExchangeRate (getRate) " + e.getMessage());
         }
         return Float.parseFloat(exchangeRate);
-    }
-    
+    }    
 }
