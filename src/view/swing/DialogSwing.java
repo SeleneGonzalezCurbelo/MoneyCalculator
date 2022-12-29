@@ -13,6 +13,7 @@ import model.Currency;
 import model.Money;
 import view.Dialog;
 
+
 public class DialogSwing extends JPanel implements Dialog{
     private final List<Currency> currencies;
     private JTextField cantidad;
@@ -24,9 +25,8 @@ public class DialogSwing extends JPanel implements Dialog{
      public DialogSwing(List<Currency> currencies) {
         this.currencies = currencies;
         this.createComponentGUI();
-        // this.displaySwing = displaySwing;
     }
-    
+     
     @Override
     public Money getMoney() {
         Money money;
@@ -34,6 +34,7 @@ public class DialogSwing extends JPanel implements Dialog{
         try{
             money = new Money(Double.parseDouble(cantidad.getText()), currencies.get(idx));
         } catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Debe ingresar un número válido", "Error", JOptionPane.ERROR_MESSAGE);
             money = new Money(0, currencies.get(idx));
             cantidad.setText("0");
         }
@@ -72,12 +73,12 @@ public class DialogSwing extends JPanel implements Dialog{
         this.add(button);
        
         button.addActionListener((ActionEvent evt) -> {
-            if(cantidad.getText().length() != 0){
-                this.displaySwing = new DisplaySwing(this.getMoney());
-                this.controller = new MCController(this, displaySwing);
-                controller.execute();                
+            if (cantidad.getText().length() != 0) {
+                DialogSwing.this.displaySwing = new DisplaySwing(DialogSwing.this.getMoney());
+                DialogSwing.this.controller = new MCController(DialogSwing.this, displaySwing);
+                controller.execute();
                 new MoneyCalculatorGUISwing(displaySwing, "Dialog Money Calculator...");
-            }else {
+            } else {
                 JOptionPane.showMessageDialog(null, "Debe de introducir un valor", "Money Calculator", JOptionPane.WARNING_MESSAGE);
             }
         });
