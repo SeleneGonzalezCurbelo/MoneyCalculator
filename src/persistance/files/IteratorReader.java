@@ -1,14 +1,13 @@
 package persistance.files;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class IteratorReader implements Iterable<String>{
-   private final BufferedReader reader;
+   private final Scanner scanner;
 
-    public IteratorReader(BufferedReader reader) {
-        this.reader = reader;
+    public IteratorReader(Scanner scanner) {
+        this.scanner = scanner;
     }
     
     @Override
@@ -28,11 +27,7 @@ public class IteratorReader implements Iterable<String>{
             }
             
              public String readLine(){
-                try{
-                    return reader.readLine();
-                } catch(IOException exception){
-                    return null;
-                }
+                return scanner.nextLine();
             }
         };   
     } 
